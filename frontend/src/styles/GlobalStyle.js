@@ -1,5 +1,5 @@
 import {createGlobalStyle} from 'styled-components'
-
+import '@fortawesome/fontawesome-free/css/all.css';
 export const GlobalStyle = createGlobalStyle`
     *{
         margin: 0;

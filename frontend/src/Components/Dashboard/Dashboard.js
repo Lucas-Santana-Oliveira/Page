@@ -3,8 +3,10 @@ import styled from 'styled-components'
 import { useGlobalContext } from '../../context/globalContext';
 import History from '../../History/History';
 import { InnerLayout } from '../../styles/Layouts';
-import { dollar } from '../../utils/Icons';
+import { dollar } from "../../utils/Icons";
 import Chart from '../Chart/Chart';
+import '@fortawesome/fontawesome-free/css/all.css';
+
 
 function Dashboard() {
     const {totalExpenses,incomes, expenses, totalIncome, totalBalance, getIncomes, getExpenses } = useGlobalContext()
@@ -12,30 +14,30 @@ function Dashboard() {
     useEffect(() => {
         getIncomes()
         getExpenses()
-    }, [])
+    }, [getIncomes,getExpenses])
 
     return (
         <DashboardStyled>
             <InnerLayout>
-                <h1>All Transactions</h1>
+                <h1>Transações</h1>
                 <div className="stats-con">
                     <div className="chart-con">
                         <Chart />
                         <div className="amount-con">
                             <div className="income">
-                                <h2>Total Income</h2>
+                                <h2>Total Renda</h2>
                                 <p>
                                     {dollar} {totalIncome()}
                                 </p>
                             </div>
                             <div className="expense">
-                                <h2>Total Expense</h2>
+                                <h2>Total Despesa</h2>
                                 <p>
                                     {dollar} {totalExpenses()}
                                 </p>
                             </div>
                             <div className="balance">
-                                <h2>Total Balance</h2>
+                                <h2>Balanço</h2>
                                 <p>
                                     {dollar} {totalBalance()}
                                 </p>
@@ -44,22 +46,22 @@ function Dashboard() {
                     </div>
                     <div className="history-con">
                         <History />
-                        <h2 className="salary-title">Min <span>Salary</span>Max</h2>
+                        <h2 className="salary-title">Min <span>Salário</span>Max</h2>
                         <div className="salary-item">
                             <p>
-                                ${Math.min(...incomes.map(item => item.amount))}
+                                R${Math.min(...incomes.map(item => item.amount))}
                             </p>
                             <p>
-                                ${Math.max(...incomes.map(item => item.amount))}
+                                R${Math.max(...incomes.map(item => item.amount))}
                             </p>
                         </div>
-                        <h2 className="salary-title">Min <span>Expense</span>Max</h2>
+                        <h2 className="salary-title">Min <span>Despesa</span>Max</h2>
                         <div className="salary-item">
                             <p>
-                                ${Math.min(...expenses.map(item => item.amount))}
+                                R${Math.min(...expenses.map(item => item.amount))}
                             </p>
                             <p>
-                                ${Math.max(...expenses.map(item => item.amount))}
+                                R${Math.max(...expenses.map(item => item.amount))}
                             </p>
                         </div>
                     </div>
@@ -142,6 +144,16 @@ const DashboardStyled = styled.div`
             }
         }
     }
+    /* Responsividade */
+  @media screen and (max-width: 768px) {
+    /* Ajuste os estilos para telas menores */
+    border-radius: 20px;
+  }
+
+  @media screen and (max-width: 480px) {
+    /* Ajuste adicional para telas ainda menores */
+    border-radius: 10px;
+  }
 `;
 
 export default Dashboard

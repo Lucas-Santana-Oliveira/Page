@@ -4,7 +4,8 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from '../../context/globalContext';
 import Button from '../Button/Button';
-import { plus } from '../../utils/Icons';
+import { plus } from "../../utils/Icons";
+import '@fortawesome/fontawesome-free/css/all.css';
 
 
 function ExpenseForm() {
@@ -69,15 +70,15 @@ function ExpenseForm() {
             </div>
             <div className="selects input-control">
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
-                    <option value="" disabled >Select Option</option>
-                    <option value="education">Education</option>
-                    <option value="groceries">Groceries</option>
-                    <option value="health">Health</option>
-                    <option value="subscriptions">Subscriptions</option>
-                    <option value="takeaways">Takeaways</option>
-                    <option value="clothing">Clothing</option>  
-                    <option value="travelling">Travelling</option>  
-                    <option value="other">Other</option>  
+                    <option value="" disabled >Selecione Opção</option>
+                    <option value="education">Educação</option>
+                    <option value="groceries">Alimentação</option>
+                    <option value="health">Saúde</option>
+                    <option value="subscriptions">Assinaturas</option>
+                    <option value="takeaways">Investimento</option>
+                    <option value="clothing">Roupas</option>  
+                    <option value="travelling">Viajem</option>  
+                    <option value="other">Outros</option>  
                 </select>
             </div>
             <div className="input-control">
@@ -143,5 +144,6 @@ const ExpenseFormStyled = styled.form`
             }
         }
     }
+    
 `;
 export default ExpenseForm

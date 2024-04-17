@@ -1,6 +1,6 @@
 import React, {useState, useMemo} from 'react'
 import styled from "styled-components";
-import bg from "./img/bg.png";
+import bg from "./img/bg.jpg";
 import {MainLayout} from "./styles/Layouts.js";
 import Orb from "./Components/Orb/Orb.js";
 import Navigation from "./Components/Navigation/Navigation.js";
@@ -48,20 +48,33 @@ function App() {
 }
 
 const AppStyled = styled.div`
-  height: 100vh;
-  background-image: url(${props => props.bg});
-  position: relative;
-  main{
-    flex: 1;
-    background: rgba(252, 246, 249, 0.78);
-    border: 3px solid #FFFFFF;
-    backdrop-filter: blur(4.5px);
-    border-radius: 32px;
-    overflow-x: hidden;
-    &::-webkit-scrollbar{
-      width: 0;
-    }
+height: 100vh;
+background-image: url(${props => props.bg});
+position: relative;
+
+main {
+  flex: 1;
+  background: rgba(252, 246, 249, 0.78);
+  border: 3px solid #FFFFFF;
+  backdrop-filter: blur(4.5px);
+  border-radius: 32px;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 0;
   }
+
+  /* Responsividade */
+  @media screen and (max-width: 768px) {
+    /* Ajuste os estilos para telas menores */
+    border-radius: 20px;
+  }
+
+  @media screen and (max-width: 480px) {
+    /* Ajuste adicional para telas ainda menores */
+    border-radius: 10px;
+  }
+}
+
 `;
 
 export default App;

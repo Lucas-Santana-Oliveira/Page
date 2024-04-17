@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import '@fortawesome/fontawesome-free/css/all.css';
 export const MainLayout = styled.div`
     padding: 2rem;
     height: 100%;

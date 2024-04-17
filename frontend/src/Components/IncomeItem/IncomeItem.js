@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { dateFormat } from '../../utils/dateFormat';
-import { bitcoin, book, calender, card, circle, clothing, comment, dollar, food, freelance, medical, money, piggy, stocks, takeaway, trash, tv, users, yt } from '../../utils/Icons';
+import { dateFormat } from '../../utils/dateFormat.js';
+import { bitcoin, book, calender, card, circle, clothing, comment, dollar, food, freelance, medical, money, piggy, stocks, takeaway, trash, tv, users } from "../../utils/Icons.js";
 import Button from '../Button/Button';
-
+import '@fortawesome/fontawesome-free/css/all.css';
 function IncomeItem({
     id,
     title,
@@ -30,8 +30,6 @@ function IncomeItem({
                 return bitcoin;
             case 'bank':
                 return card;
-            case 'youtube':
-                return yt;
             case 'other':
                 return piggy;
             default:
@@ -164,6 +162,7 @@ const IncomeItemStyled = styled.div`
             }
         }
     }
+    
 `;
 
 export default IncomeItem

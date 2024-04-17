@@ -1,39 +1,40 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import avatar from '../../img/avatar.png'
-import { signout } from '../../utils/Icons'
-import { menuItems } from '../../utils/menuItems'
-
-function Navigation({active, setActive}) {
-    
+import React from 'react'; // Importando React
+import styled from 'styled-components'; // Importando styled-components
+import avatar from '../../img/avatar.png'; // Importando avatar
+import { signout } from "../../utils/Icons.js"; // Importando signout
+import { menuItems } from '../../utils/menuItems.js'; // Importando menuItems
+import '@fortawesome/fontawesome-free/css/all.css';
+function Navigation({ active, setActive }) {
     return (
         <NavStyled>
             <div className="user-con">
                 <img src={avatar} alt="" />
                 <div className="text">
-                    <h2>Mike</h2>
-                    <p>Your Money</p>
+                    <h2>Admin</h2>
+                    <p>Fluxo monetário</p>
                 </div>
             </div>
             <ul className="menu-items">
                 {menuItems.map((item) => {
-                    return <li
-                        key={item.id}
-                        onClick={() => setActive(item.id)}
-                        className={active === item.id ? 'active': ''}
-                    >
-                        {item.icon}
-                        <span>{item.title}</span>
-                    </li>
+                    return (
+                        <li
+                            key={item.id}
+                            onClick={() => setActive(item.id)}
+                            className={active === item.id ? 'active' : ''}
+                        >
+                            {item.icon}
+                            <span>{item.title}</span>
+                        </li>
+                    );
                 })}
             </ul>
             <div className="bottom-nav">
                 <li>
-                    {signout} Sign Out
+                    {signout} Acessar
                 </li>
             </div>
         </NavStyled>
-    )
+    );
 }
 
 const NavStyled = styled.nav`
@@ -110,6 +111,7 @@ const NavStyled = styled.nav`
             border-radius: 0 10px 10px 0;
         }
     }
+    
 `;
 
-export default Navigation
+export default Navigation;
